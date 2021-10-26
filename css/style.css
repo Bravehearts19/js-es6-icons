@@ -19,3 +19,12 @@ a {
     padding-bottom: 0;
     font-size: 3rem;
 }
+
+.card-container .card .card-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    font-size: .8rem;
+}

@@ -106,6 +106,16 @@ const colorsMap = {
 const cardContainer = document.querySelector(".card-container");
 const filterSelect = document.getElementById("filter_select");
 
+const groupsList = groupByType(iconsList);
+const categoryNamesList = getCategoriesNameList(groupsList);
+console.log(groupsList);
+console.log(categoryNamesList);
+console.log(iconsList)
+
+fillFilterSelectOptions(categoryNamesList);
+
+printSingleCategory(iconsList);
+
 function groupByType(iconsList) {
     const groupsList = {};
 
@@ -117,12 +127,10 @@ function groupByType(iconsList) {
         }
         iconsList[i].color = colorsMap[type];
 
-        groupsList[type].push(iconsList[i]);
+        groupsList[type].push({...iconsList[i]});
     }
     return groupsList;
 }
-
-printSingleCategory(iconsList);
 
 function printSingleCategory(listToPrint) {
     for (let i = 0; i < listToPrint.length; i++) {
@@ -139,14 +147,14 @@ function printSingleCategory(listToPrint) {
         column.classList.add("col");
 
         const card = document.createElement("div");
-        card.classList.add("card", "h-100");
+        card.classList.add("card", "h-100", "shadow");
 
         const cardImage = document.createElement("div");
         cardImage.classList.add("card-img-top");
 
         const iconImage = document.createElement("i");
-        iconImage.classList.add(`${family}`, `${prefix + name}`);
-        iconImage.style.color = `${color}`;
+        iconImage.classList.add(family, prefix + name);
+        iconImage.style.color = color;
 
         const cardBody = document.createElement("div");
         cardBody.classList.add("card-body");
@@ -194,13 +202,6 @@ function fillFilterSelectOptions(categoryNamesList) {
         filterSelect.append(option);
     }
 }
-
-const groupsList = groupByType(iconsList);
-const categoryNamesList = getCategoriesNameList(groupsList);
-console.log(groupsList);
-console.log(categoryNamesList);
-
-fillFilterSelectOptions(categoryNamesList);
 
 filterSelect.addEventListener("change", function (e) {
     const value = this.value;
