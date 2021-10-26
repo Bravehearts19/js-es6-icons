@@ -1,0 +1,21 @@
+a {
+    text-decoration: none;
+    color: #249cc3;
+    font-size: 40px;
+}
+
+.select_container {
+    background-color: #249cc3;
+    color: white;
+    padding-top: .7rem;
+    padding-bottom: .7rem;
+}
+
+.card-container .card .card-img-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    padding-bottom: 0;
+    font-size: 3rem;
+}
