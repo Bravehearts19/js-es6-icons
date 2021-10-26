@@ -133,8 +133,9 @@ function groupByType(iconsList) {
 }
 
 function printSingleCategory(listToPrint) {
-    for (let i = 0; i < listToPrint.length; i++) {
+    console.log(listToPrint);
 
+    for (let i = 0; i < listToPrint.length; i++) {
         /**
          * 
          * @type {{name: string, prefix: string, type: string, family: string, color: string}}
@@ -172,7 +173,7 @@ function printSingleCategory(listToPrint) {
     }
 }
 
-function printMultipleCategories(...categoriesToPrint) {
+function printMultipleCategories(categoriesToPrint) {
     cardContainer.innerHTML = "";
 
     for (let i = 0; i < categoriesToPrint.length; i++) {
@@ -204,7 +205,6 @@ function fillFilterSelectOptions(categoryNamesList) {
 }
 
 filterSelect.addEventListener("change", function (e) {
-    const value = this.value;
     const toPrint = [];
 
     if(this.multiple){
@@ -215,10 +215,10 @@ filterSelect.addEventListener("change", function (e) {
        }
     }
   
-    if (value === "") {
-      printSingleCategory(...iconsList);
+    if (this.value === "") {
+      printSingleCategory(iconsList);
     } else {
-      printMultipleCategories(...toPrint);
+      printMultipleCategories(toPrint);
     }
 });
   
