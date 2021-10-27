@@ -216,9 +216,11 @@ filterSelect.addEventListener("change", function (e) {
     }
   
     if (this.value === "") {
-      printSingleCategory(iconsList);
+        cardContainer.innerHTML = "";
+        printSingleCategory(iconsList);
     } else {
-      printMultipleCategories(toPrint);
+        cardContainer.innerHTML = "";
+        printMultipleCategories(toPrint);
     }
 });
   
